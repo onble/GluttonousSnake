@@ -1,0 +1,17 @@
+{
+  "_$ver": 1,
+  "_$id": "8bhz88pc",
+  "_$type": "Image",
+  "name": "Food",
+  "x": 1018.5,
+  "y": 660.5,
+  "width": 50,
+  "height": 50,
+  "anchorX": 0.5,
+  "anchorY": 0.5,
+  "scaleX": 0.5,
+  "scaleY": 0.5,
+  "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+  "useSourceSize": true,
+  "color": "#ffffff"
+}

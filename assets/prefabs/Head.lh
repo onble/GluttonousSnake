@@ -72,6 +72,15 @@
     {
       "_$type": "fa104c31-7b68-4e40-8831-d1f020012bcc",
       "scriptPath": "../src/Head.ts",
+      "bodyPrefab": {
+        "_$uuid": "05af4691-e63f-47d2-8310-629ad03b638a",
+        "_$type": "Prefab"
+      },
+      "foodPrefab": {
+        "_$uuid": "848fa3ec-f5db-4f14-9d05-2040ed3c2daa",
+        "_$type": "Prefab"
+      },
+      "bodyNum": 2,
       "text": ""
     }
   ]
