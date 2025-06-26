@@ -1,0 +1,78 @@
+{
+  "_$ver": 1,
+  "_$id": "qqx77qzc",
+  "_$type": "Image",
+  "name": "Head",
+  "x": 943,
+  "y": 575,
+  "width": 50,
+  "height": 50,
+  "anchorX": 0.5,
+  "anchorY": 0.5,
+  "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+  "useSourceSize": true,
+  "color": "#ff7474",
+  "_$child": [
+    {
+      "_$id": "fuv0mpr9",
+      "_$type": "Image",
+      "name": "Eye1",
+      "x": 15,
+      "y": 8,
+      "width": 20,
+      "height": 20,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "left": 5,
+      "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "fk20lxl5",
+          "_$type": "Image",
+          "name": "EyeBlack",
+          "x": 5,
+          "y": 5,
+          "width": 10,
+          "height": 10,
+          "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+          "color": "#000000"
+        }
+      ]
+    },
+    {
+      "_$id": "6rbv00zb",
+      "_$type": "Image",
+      "name": "Eye2",
+      "x": 35,
+      "y": 8,
+      "width": 20,
+      "height": 20,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "right": 5,
+      "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "5gj59xun",
+          "_$type": "Image",
+          "name": "EyeBlack",
+          "x": 5,
+          "y": 5,
+          "width": 10,
+          "height": 10,
+          "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+          "color": "#000000"
+        }
+      ]
+    }
+  ],
+  "_$comp": [
+    {
+      "_$type": "fa104c31-7b68-4e40-8831-d1f020012bcc",
+      "scriptPath": "../src/Head.ts",
+      "text": ""
+    }
+  ]
+}

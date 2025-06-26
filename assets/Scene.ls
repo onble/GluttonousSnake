@@ -841,6 +841,15 @@
           "color": "#ffffff"
         }
       ]
+    },
+    {
+      "_$id": "kkawvq6h",
+      "_$prefab": "1587bd57-4d72-4679-9929-e84cb62d69ea",
+      "name": "Head",
+      "active": true,
+      "x": 943,
+      "y": 575,
+      "visible": true
     }
   ]
 }
