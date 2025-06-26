@@ -1,0 +1,13 @@
+{
+  "resolution": {
+    "designWidth": 1920,
+    "designHeight": 1080
+  },
+  "modules": {
+    "laya.ui": true,
+    "laya.d3": true
+  },
+  "splash": {
+    "fit": "center"
+  }
+}
