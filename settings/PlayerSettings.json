@@ -4,7 +4,6 @@
     "designHeight": 1080
   },
   "physics2D": {
-    "debugDraw": true,
     "drawCenterOfMass": true,
     "layers": [
       "Default",

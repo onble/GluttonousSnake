@@ -114,6 +114,7 @@ export class Head extends Laya.Script {
         }
         this.owner.parent.addChild(newBody);
         this.bodyArray.push(newBody);
+        this.changeZIndex();
     }
 
     rotateHead(headPos: Laya.Vector2) {
@@ -149,6 +150,13 @@ export class Head extends Laya.Script {
         // 使用atan2计算有符号角度
         return Math.atan2(cross, dot);
     }
+
+    changeZIndex() {
+        const lastIndex = this.owner.parent.numChildren - 1;
+        for (let i = 0; i < this.bodyArray.length; i++) {
+            this.bodyArray[i].parent.setChildIndex(this.bodyArray[i], lastIndex - i);
+        }
+    }
     //#region 事件监听
     onTriggerEnter(
         other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
@@ -164,6 +172,8 @@ export class Head extends Laya.Script {
             this.owner.parent.addChild(newFood);
             // 更新身体
             this.getNewBody();
+        } else if (other.owner.name.startsWith("Wall")) {
+            Laya.timer.pause();
         }
     }
     //#endregion 事件监听
