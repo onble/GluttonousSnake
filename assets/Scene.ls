@@ -1028,6 +1028,7 @@
           "_$id": "e9x7hspa",
           "_$type": "Sprite",
           "name": "StartPanel",
+          "active": false,
           "width": 1920,
           "height": 1080,
           "_mouseState": 2,
@@ -1045,8 +1046,8 @@
               "centerY": 0,
               "stateNum": 1,
               "skin": "res://5f11fd15-54b8-47f2-acf7-f4e69b73ac0e",
-              "label": "Title",
-              "labelSize": 59,
+              "label": "开始游戏",
+              "labelSize": 65,
               "labelBold": true,
               "labelColors": "#000000,#000000,#000000",
               "labelAlign": "center",
@@ -1073,6 +1074,73 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "_$id": "zznslh12",
+          "_$type": "Sprite",
+          "name": "GameOverPanel",
+          "width": 1920,
+          "height": 1080,
+          "_mouseState": 2,
+          "_$child": [
+            {
+              "_$id": "6megbor8",
+              "_$type": "Button",
+              "name": "Btn_Restart",
+              "x": 770,
+              "y": 471,
+              "width": 381,
+              "height": 138,
+              "_mouseState": 2,
+              "centerX": 0,
+              "centerY": 0,
+              "stateNum": 1,
+              "skin": "res://5f11fd15-54b8-47f2-acf7-f4e69b73ac0e",
+              "label": "重新开始",
+              "labelSize": 65,
+              "labelBold": true,
+              "labelColors": "#000000,#000000,#000000",
+              "labelAlign": "center",
+              "labelVAlign": "middle",
+              "_$comp": [
+                {
+                  "_$type": "6ecd187a-6e48-45c5-9537-d509e505c7ba",
+                  "scriptPath": "../src/ButtonSprite.ts",
+                  "normalSprite": {
+                    "_$uuid": "241ffd9b-a9b9-476b-b908-93c8e1870398",
+                    "_$type": "Texture2D"
+                  },
+                  "pressedSprite": {
+                    "_$uuid": "47f63475-cdac-458d-b58d-d69362671ac9",
+                    "_$type": "Texture2D"
+                  },
+                  "hoverSprite": {
+                    "_$uuid": "d4317abe-6ec5-4944-9c5f-b7a28df53c63",
+                    "_$type": "Texture2D"
+                  },
+                  "disableSprite": {
+                    "_$uuid": "bd1c2359-3ab8-45ba-8cd4-61bb9b00f6f5",
+                    "_$type": "Texture2D"
+                  }
+                }
+              ]
+            },
+            {
+              "_$id": "mbctinbu",
+              "_$type": "Text",
+              "name": "Txt_Score",
+              "x": 825,
+              "y": 385,
+              "width": 295,
+              "height": 82,
+              "text": "得分:",
+              "fontSize": 50,
+              "color": "rgba(0, 0, 0, 1)",
+              "bold": true,
+              "valign": "middle",
+              "leading": 2
             }
           ]
         }
