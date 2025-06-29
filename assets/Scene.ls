@@ -897,7 +897,15 @@
       "active": true,
       "x": 943,
       "y": 575,
-      "visible": true
+      "visible": true,
+      "_$comp": [
+        {
+          "_$override": "fa104c31-7b68-4e40-8831-d1f020012bcc",
+          "joystick": {
+            "_$ref": "3ol0laql"
+          }
+        }
+      ]
     }
   ]
 }

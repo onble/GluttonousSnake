@@ -1,3 +1,5 @@
+import { Joystick } from "./Joystick";
+
 const { regClass, property } = Laya;
 
 @regClass()
@@ -11,6 +13,9 @@ export class Head extends Laya.Script {
     @property(Laya.Prefab)
     public foodPrefab: Laya.Prefab = null; // 食物预制体
 
+    @property(Laya.Sprite)
+    public joystick: Laya.Sprite = null; // 虚拟摇杆
+
     //#endregion 预制体引用
 
     //#region 变量
@@ -23,6 +28,10 @@ export class Head extends Laya.Script {
 
     @property(Number)
     public bodyDistance: number = 50; // 蛇身之间的距离
+
+    // 蛇移动方向
+    @property(Laya.Vector3)
+    public snakeDir: Laya.Vector3 = new Laya.Vector3(0, 0, 0);
 
     public speed: number = 200; // 蛇移动速度
 
@@ -42,7 +51,21 @@ export class Head extends Laya.Script {
         this.owner.parent.addChild(this.foodPrefab.create());
     }
 
-    onUpdate(): void {}
+    onUpdate(): void {
+        // 获取毫秒级的帧间隔时间
+        const deltaMs = Laya.timer.delta;
+        // console.log("帧间隔时间(毫秒):", deltaMs);
+
+        // 转换为秒（与 Cocos 的 deltaTime 单位一致）
+        const deltaSec = deltaMs / 1000;
+
+        this.snakeDir = this.joystick.getComponent(Joystick).dir;
+        const nowPos = new Laya.Vector2(
+            this.owner.x + this.snakeDir.x * this.speed * deltaSec,
+            this.owner.y + this.snakeDir.y * this.speed * deltaSec
+        );
+        this.owner.pos(nowPos.x, nowPos.y);
+    }
 
     randomPos() {
         // 设计宽度
