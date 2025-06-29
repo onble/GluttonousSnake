@@ -65,6 +65,8 @@ export class Head extends Laya.Script {
             this.owner.y + this.snakeDir.y * this.speed * deltaSec
         );
         this.owner.pos(nowPos.x, nowPos.y);
+
+        this.moveBody();
     }
 
     randomPos() {
@@ -109,6 +111,14 @@ export class Head extends Laya.Script {
 
         // 应用旋转
         this.owner.rotation = angleDeg;
+    }
+
+    moveBody() {
+        for (let i = this.bodyArray.length - 2; i >= 0; i--) {
+            // 从后往前开始遍历移动蛇身
+            this.bodyArray[i + 1].pos(this.bodyArray[i].x, this.bodyArray[i].y); // 每一个蛇身都移动到它前一个节点的位置
+        }
+        this.bodyArray[1].pos(this.owner.x, this.owner.y); // 第一个蛇身移动到蛇头位置
     }
 
     /**
