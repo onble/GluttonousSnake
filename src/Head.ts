@@ -2,7 +2,7 @@ const { regClass, property } = Laya;
 
 @regClass()
 export class Head extends Laya.Script {
-    declare owner: Laya.Sprite;
+    declare owner: Laya.Image;
 
     //#region 预制体引用
     @property(Laya.Prefab)
@@ -16,7 +16,7 @@ export class Head extends Laya.Script {
     //#region 变量
 
     @property(Array(Laya.Node))
-    public bodyArray: Array<Laya.Node> = []; // 蛇身体数组（包含蛇头）
+    public bodyArray: Array<Laya.Image> = []; // 蛇身体数组（包含蛇头）
 
     @property(Number)
     public bodyNum: number = 2; // 初始蛇身数量
@@ -30,14 +30,14 @@ export class Head extends Laya.Script {
 
     onAwake(): void {
         this.bodyArray.push(this.owner);
+        const { x, y } = this.randomPos();
+        this.owner.pos(x, y);
         for (let i = 0; i < this.bodyNum; i++) {
             this.getNewBody();
         }
     }
 
     onStart(): void {
-        const { x, y } = this.randomPos();
-        this.owner.pos(x, y);
         this.owner.parent.addChild(this.foodPrefab.create());
     }
 
@@ -61,6 +61,13 @@ export class Head extends Laya.Script {
             Laya.Vector2.normalize(dir, dir);
             Laya.Vector2.scale(dir, this.bodyDistance, dir);
             newBody.pos(this.owner.x + dir.x, this.owner.y + dir.y);
+        } else {
+            const lastBody = this.bodyArray[this.bodyArray.length - 1];
+            const lastBoBody = this.bodyArray[this.bodyArray.length - 1];
+            let dir = new Laya.Vector2(lastBoBody.x + lastBoBody.x, lastBoBody.y + lastBody.y);
+            Laya.Vector2.normalize(dir, dir);
+            Laya.Vector2.scale(dir, this.bodyDistance, dir);
+            newBody.pos(lastBody.x + dir.x, lastBody.y + dir.y);
         }
         this.owner.parent.addChild(newBody);
         this.bodyArray.push(newBody);
