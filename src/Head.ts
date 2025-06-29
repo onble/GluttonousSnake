@@ -31,6 +31,7 @@ export class Head extends Laya.Script {
     onStart(): void {
         const { x, y } = this.randomPos();
         this.owner.pos(x, y);
+        this.owner.parent.addChild(this.foodPrefab.create());
     }
 
     onUpdate(): void {}
