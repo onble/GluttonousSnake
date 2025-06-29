@@ -28,6 +28,13 @@ export class Head extends Laya.Script {
 
     //#region 变量
 
+    onAwake(): void {
+        this.bodyArray.push(this.owner);
+        for (let i = 0; i < this.bodyNum; i++) {
+            this.getNewBody();
+        }
+    }
+
     onStart(): void {
         const { x, y } = this.randomPos();
         this.owner.pos(x, y);
@@ -45,5 +52,17 @@ export class Head extends Laya.Script {
         const x = Math.random() * (designWidth - 600) + 300;
         const y = Math.random() * (designHeight - 600) + 300;
         return { x, y };
+    }
+
+    getNewBody() {
+        const newBody = this.bodyPrefab.create() as Laya.Image;
+        if (this.bodyArray.length === 1) {
+            const dir = new Laya.Vector2(this.owner.x, this.owner.y);
+            Laya.Vector2.normalize(dir, dir);
+            Laya.Vector2.scale(dir, this.bodyDistance, dir);
+            newBody.pos(this.owner.x + dir.x, this.owner.y + dir.y);
+        }
+        this.owner.parent.addChild(newBody);
+        this.bodyArray.push(newBody);
     }
 }
