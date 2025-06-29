@@ -13,10 +13,22 @@ export class Head extends Laya.Script {
     @property(Laya.Prefab)
     public foodPrefab: Laya.Prefab = null; // 食物预制体
 
+    //#endregion 预制体引用
+
+    //#region UI
     @property(Laya.Sprite)
     public joystick: Laya.Sprite = null; // 虚拟摇杆
 
-    //#endregion 预制体引用
+    @property(Laya.Text)
+    public txt_Score: Laya.Text = null;
+
+    @property(Laya.Sprite)
+    public startPanel: Laya.Sprite = null; // 开始面板
+
+    @property(Laya.Sprite)
+    public gameOverPanel: Laya.Sprite = null; // 游戏结束面板
+
+    //#endregion UI
 
     //#region 变量
 
@@ -157,6 +169,16 @@ export class Head extends Laya.Script {
             this.bodyArray[i].parent.setChildIndex(this.bodyArray[i], lastIndex - i);
         }
     }
+
+    startGame() {
+        Laya.timer.resume();
+        this.startPanel.active = false;
+    }
+
+    restartGame() {
+        Laya.timer.resume();
+        Laya.Scene.open("Scene.ls");
+    }
     //#region 事件监听
     onTriggerEnter(
         other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
@@ -167,12 +189,15 @@ export class Head extends Laya.Script {
         if (other.owner.name === "Food") {
             other.owner.removeSelf();
             this.Score++;
+            this.txt_Score.text = `${this.Score}`;
             // 产生食物
             const newFood = this.foodPrefab.create() as Laya.Image;
             this.owner.parent.addChild(newFood);
             // 更新身体
             this.getNewBody();
         } else if (other.owner.name.startsWith("Wall")) {
+            this.gameOverPanel.active = true;
+            (this.gameOverPanel.getChildByName("Txt_Score") as Laya.Text).text = `得分: ${this.Score}`;
             Laya.timer.pause();
         }
     }

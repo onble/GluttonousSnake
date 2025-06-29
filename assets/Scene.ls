@@ -968,6 +968,15 @@
           "_$override": "fa104c31-7b68-4e40-8831-d1f020012bcc",
           "joystick": {
             "_$ref": "3ol0laql"
+          },
+          "txt_Score": {
+            "_$ref": "1nuxxaxk"
+          },
+          "startPanel": {
+            "_$ref": "e9x7hspa"
+          },
+          "gameOverPanel": {
+            "_$ref": "zznslh12"
           }
         },
         {
@@ -988,6 +997,7 @@
       "width": 1920,
       "height": 1080,
       "_mouseState": 2,
+      "mouseThrough": true,
       "_$child": [
         {
           "_$id": "lpcmws2a",
@@ -1028,9 +1038,9 @@
           "_$id": "e9x7hspa",
           "_$type": "Sprite",
           "name": "StartPanel",
-          "active": false,
           "width": 1920,
           "height": 1080,
+          "visible": false,
           "_mouseState": 2,
           "_$child": [
             {
@@ -1083,6 +1093,7 @@
           "name": "GameOverPanel",
           "width": 1920,
           "height": 1080,
+          "visible": false,
           "_mouseState": 2,
           "_$child": [
             {
