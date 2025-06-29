@@ -35,6 +35,9 @@ export class Head extends Laya.Script {
 
     public speed: number = 200; // 蛇移动速度
 
+    /** 保存上一帧的移动方向 */
+    public previousMoveDir: Laya.Vector3 = null;
+
     //#region 变量
 
     onAwake(): void {
@@ -42,6 +45,9 @@ export class Head extends Laya.Script {
         const { x, y } = this.randomPos();
         this.owner.pos(x, y);
         this.rotateHead(new Laya.Vector2(this.owner.x, this.owner.y));
+        const defaultDir = new Laya.Vector2(0, 0);
+        Laya.Vector2.normalize(new Laya.Vector2(this.owner.x, this.owner.y), defaultDir);
+        this.previousMoveDir = new Laya.Vector3(defaultDir.x, defaultDir.y, 0);
         for (let i = 0; i < this.bodyNum; i++) {
             this.getNewBody();
         }
@@ -63,10 +69,17 @@ export class Head extends Laya.Script {
         const deltaSec = deltaMs / 1000;
 
         this.snakeDir = this.joystick.getComponent(Joystick).dir;
+        if (this.snakeDir.length() === 0) {
+            this.snakeDir = this.previousMoveDir;
+        } else {
+            this.owner.rotation = this.joystick.getComponent(Joystick).calculateAngle() + 90;
+            this.previousMoveDir = this.snakeDir;
+        }
         const nowPos = new Laya.Vector2(
             this.owner.x + this.snakeDir.x * this.speed * deltaSec,
             this.owner.y + this.snakeDir.y * this.speed * deltaSec
         );
+
         this.owner.pos(nowPos.x, nowPos.y);
     }
 
@@ -108,7 +121,7 @@ export class Head extends Laya.Script {
         const angleRad = this.getSignedAngle(referenceVec, headPos);
 
         // 转换为角度并调整偏移
-        const angleDeg = (angleRad * 180) / Math.PI - 90;
+        const angleDeg = (angleRad * 180) / Math.PI + 90;
 
         // 应用旋转
         this.owner.rotation = angleDeg;
