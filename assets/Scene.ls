@@ -701,6 +701,7 @@
           "_$type": "BoxCollider",
           "x": 22,
           "y": -1000,
+          "isSensor": true,
           "width": 50,
           "height": 1920
         }
@@ -961,7 +962,24 @@
       "active": true,
       "x": 942,
       "y": 575,
-      "visible": true
+      "visible": true,
+      "_$comp": [
+        {
+          "_$override": "fa104c31-7b68-4e40-8831-d1f020012bcc",
+          "joystick": {
+            "_$ref": "3ol0laql"
+          }
+        },
+        {
+          "_$override": "RigidBody",
+          "group": 0,
+          "type": "kinematic"
+        },
+        {
+          "_$override": "ln7g",
+          "isSensor": true
+        }
+      ]
     }
   ]
 }

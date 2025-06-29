@@ -33,6 +33,9 @@ export class Head extends Laya.Script {
     @property(Laya.Vector3)
     public snakeDir: Laya.Vector3 = new Laya.Vector3(0, 0, 0);
 
+    @property(Number)
+    Score: number = 0;
+
     public speed: number = 200; // 蛇移动速度
 
     /** 保存上一帧的移动方向 */
@@ -146,4 +149,22 @@ export class Head extends Laya.Script {
         // 使用atan2计算有符号角度
         return Math.atan2(cross, dot);
     }
+    //#region 事件监听
+    onTriggerEnter(
+        other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
+        self?: Laya.ColliderBase,
+        contact?: any
+    ): void {
+        // console.warn("碰撞了", other.owner.name);
+        if (other.owner.name === "Food") {
+            other.owner.removeSelf();
+            this.Score++;
+            // 产生食物
+            const newFood = this.foodPrefab.create() as Laya.Image;
+            this.owner.parent.addChild(newFood);
+            // 更新身体
+            this.getNewBody();
+        }
+    }
+    //#endregion 事件监听
 }
