@@ -28,6 +28,12 @@ export class Head extends Laya.Script {
     @property(Laya.Sprite)
     public gameOverPanel: Laya.Sprite = null; // 游戏结束面板
 
+    @property(Laya.Button)
+    public btn_Start: Laya.Button = null; // 开始按钮
+
+    @property(Laya.Button)
+    public btn_Restart: Laya.Button = null; // 重新开始按钮
+
     //#endregion UI
 
     //#region 变量
@@ -56,19 +62,28 @@ export class Head extends Laya.Script {
     //#region 变量
 
     onAwake(): void {
-        this.bodyArray.push(this.owner);
-        const { x, y } = this.randomPos();
-        this.owner.pos(x, y);
-        this.rotateHead(new Laya.Vector2(this.owner.x, this.owner.y));
         const defaultDir = new Laya.Vector2(0, 0);
         Laya.Vector2.normalize(new Laya.Vector2(this.owner.x, this.owner.y), defaultDir);
         this.previousMoveDir = new Laya.Vector3(defaultDir.x, defaultDir.y, 0);
+
+        this.bodyArray.push(this.owner);
+
+        this.rotateHead(new Laya.Vector2(this.owner.x, this.owner.y));
+
         for (let i = 0; i < this.bodyNum; i++) {
             this.getNewBody();
         }
+
+        const { x, y } = this.randomPos();
+        this.owner.pos(x, y);
+
+        this.btn_Start.on(Laya.Event.CLICK, this, this.startGame);
+        this.btn_Restart.on(Laya.Event.CLICK, this, this.restartGame);
     }
 
     onStart(): void {
+        Laya.timer.pause();
+
         Laya.timer.loop(200, this, () => {
             this.moveBody();
         });
@@ -119,7 +134,7 @@ export class Head extends Laya.Script {
         } else {
             const lastBody = this.bodyArray[this.bodyArray.length - 1];
             const lastBoBody = this.bodyArray[this.bodyArray.length - 1];
-            let dir = new Laya.Vector2(lastBoBody.x + lastBoBody.x, lastBoBody.y + lastBody.y);
+            let dir = new Laya.Vector2(lastBoBody.x - lastBoBody.x, lastBoBody.y - lastBody.y);
             Laya.Vector2.normalize(dir, dir);
             Laya.Vector2.scale(dir, this.bodyDistance, dir);
             newBody.pos(lastBody.x + dir.x, lastBody.y + dir.y);
@@ -172,7 +187,7 @@ export class Head extends Laya.Script {
 
     startGame() {
         Laya.timer.resume();
-        this.startPanel.active = false;
+        this.startPanel.visible = false;
     }
 
     restartGame() {
@@ -196,7 +211,7 @@ export class Head extends Laya.Script {
             // 更新身体
             this.getNewBody();
         } else if (other.owner.name.startsWith("Wall")) {
-            this.gameOverPanel.active = true;
+            this.gameOverPanel.visible = true;
             (this.gameOverPanel.getChildByName("Txt_Score") as Laya.Text).text = `得分: ${this.Score}`;
             Laya.timer.pause();
         }

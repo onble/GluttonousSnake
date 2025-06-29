@@ -960,8 +960,8 @@
       "_$prefab": "1587bd57-4d72-4679-9929-e84cb62d69ea",
       "name": "Head",
       "active": true,
-      "x": 942,
-      "y": 575,
+      "x": 2323,
+      "y": 536,
       "visible": true,
       "_$comp": [
         {
@@ -977,6 +977,12 @@
           },
           "gameOverPanel": {
             "_$ref": "zznslh12"
+          },
+          "btn_Start": {
+            "_$ref": "35oa15ok"
+          },
+          "btn_Restart": {
+            "_$ref": "6megbor8"
           }
         },
         {
@@ -1040,7 +1046,6 @@
           "name": "StartPanel",
           "width": 1920,
           "height": 1080,
-          "visible": false,
           "_mouseState": 2,
           "_$child": [
             {
