@@ -21,6 +21,54 @@
       "color": "#ffffff"
     },
     {
+      "_$id": "3ol0laql",
+      "_$type": "Sprite",
+      "name": "joystick",
+      "width": 1920,
+      "height": 1080,
+      "_$comp": [
+        {
+          "_$type": "42d7eaa2-a517-4bb8-a4cb-60852aa08f0c",
+          "scriptPath": "../src/Joystick.ts",
+          "nodeDotBg": {
+            "_$ref": "zk2yb83m"
+          },
+          "nodeDot": {
+            "_$ref": "zdzp1w2o"
+          }
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "zk2yb83m",
+          "_$type": "Image",
+          "name": "bg",
+          "x": 100,
+          "y": 680,
+          "width": 300,
+          "height": 300,
+          "alpha": 0.422,
+          "left": 100,
+          "bottom": 100,
+          "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+          "color": "#a5a5a5",
+          "_$child": [
+            {
+              "_$id": "zdzp1w2o",
+              "_$type": "Image",
+              "name": "point",
+              "x": 100,
+              "y": 100,
+              "width": 100,
+              "height": 100,
+              "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
+              "color": "#ffffff"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "_$id": "sahghm54",
       "_$type": "Sprite",
       "name": "Wall1",
