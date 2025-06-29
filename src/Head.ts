@@ -48,6 +48,9 @@ export class Head extends Laya.Script {
     }
 
     onStart(): void {
+        Laya.timer.loop(200, this, () => {
+            this.moveBody();
+        });
         this.owner.parent.addChild(this.foodPrefab.create());
     }
 
@@ -65,8 +68,6 @@ export class Head extends Laya.Script {
             this.owner.y + this.snakeDir.y * this.speed * deltaSec
         );
         this.owner.pos(nowPos.x, nowPos.y);
-
-        this.moveBody();
     }
 
     randomPos() {
