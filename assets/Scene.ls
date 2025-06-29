@@ -76,6 +76,22 @@
       "y": 500,
       "width": 100,
       "height": 100,
+      "_$comp": [
+        {
+          "_$type": "RigidBody",
+          "type": "static",
+          "category": 8,
+          "mask": 27
+        },
+        {
+          "_$id": "irt3",
+          "_$type": "BoxCollider",
+          "x": 26,
+          "y": -500,
+          "width": 45,
+          "height": 1080
+        }
+      ],
       "_$child": [
         {
           "_$id": "feuvhsr0",
@@ -229,6 +245,22 @@
       "y": 500,
       "width": 100,
       "height": 100,
+      "_$comp": [
+        {
+          "_$type": "RigidBody",
+          "type": "static",
+          "category": 8,
+          "mask": 27
+        },
+        {
+          "_$id": "3s03",
+          "_$type": "BoxCollider",
+          "x": 26,
+          "y": -500,
+          "width": 45,
+          "height": 1080
+        }
+      ],
       "_$child": [
         {
           "_$id": "ugkb21nq",
@@ -383,6 +415,22 @@
       "width": 100,
       "height": 100,
       "rotation": 90,
+      "_$comp": [
+        {
+          "_$type": "RigidBody",
+          "type": "static",
+          "category": 8,
+          "mask": 27
+        },
+        {
+          "_$id": "db72",
+          "_$type": "BoxCollider",
+          "x": 20,
+          "y": -1000,
+          "width": 50,
+          "height": 1920
+        }
+      ],
       "_$child": [
         {
           "_$id": "ymx7h0ku",
@@ -641,6 +689,22 @@
       "width": 100,
       "height": 100,
       "rotation": 90,
+      "_$comp": [
+        {
+          "_$type": "RigidBody",
+          "type": "static",
+          "category": 8,
+          "mask": 27
+        },
+        {
+          "_$id": "7g20",
+          "_$type": "BoxCollider",
+          "x": 22,
+          "y": -1000,
+          "width": 50,
+          "height": 1920
+        }
+      ],
       "_$child": [
         {
           "_$id": "fvwn4ouz",
@@ -895,17 +959,9 @@
       "_$prefab": "1587bd57-4d72-4679-9929-e84cb62d69ea",
       "name": "Head",
       "active": true,
-      "x": 943,
+      "x": 942,
       "y": 575,
-      "visible": true,
-      "_$comp": [
-        {
-          "_$override": "fa104c31-7b68-4e40-8831-d1f020012bcc",
-          "joystick": {
-            "_$ref": "3ol0laql"
-          }
-        }
-      ]
+      "visible": true
     }
   ]
 }

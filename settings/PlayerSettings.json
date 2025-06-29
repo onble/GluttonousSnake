@@ -3,9 +3,18 @@
     "designWidth": 1920,
     "designHeight": 1080
   },
+  "physics2D": {
+    "layers": [
+      "Default",
+      "Head",
+      "Food",
+      "Wall"
+    ]
+  },
   "modules": {
     "laya.ui": true,
-    "laya.d3": true
+    "laya.d3": true,
+    "laya.physics2D": true
   },
   "splash": {
     "fit": "center"

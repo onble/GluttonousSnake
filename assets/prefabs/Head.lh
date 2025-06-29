@@ -80,8 +80,20 @@
         "_$uuid": "848fa3ec-f5db-4f14-9d05-2040ed3c2daa",
         "_$type": "Prefab"
       },
+      "joystick": null,
       "bodyNum": 2,
       "text": ""
+    },
+    {
+      "_$type": "RigidBody",
+      "type": "static",
+      "category": 2
+    },
+    {
+      "_$id": "ln7g",
+      "_$type": "CircleCollider",
+      "y": 1,
+      "radius": 20
     }
   ]
 }

@@ -18,6 +18,17 @@
     {
       "_$type": "c57ee370-741a-4923-9403-1fb29cce5021",
       "scriptPath": "../src/Food.ts"
+    },
+    {
+      "_$type": "RigidBody",
+      "type": "static",
+      "category": 4,
+      "mask": 23
+    },
+    {
+      "_$id": "3diy",
+      "_$type": "CircleCollider",
+      "radius": 20
     }
   ]
 }
