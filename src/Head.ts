@@ -32,6 +32,7 @@ export class Head extends Laya.Script {
         this.bodyArray.push(this.owner);
         const { x, y } = this.randomPos();
         this.owner.pos(x, y);
+        this.rotateHead(new Laya.Vector2(this.owner.x, this.owner.y));
         for (let i = 0; i < this.bodyNum; i++) {
             this.getNewBody();
         }
@@ -71,5 +72,31 @@ export class Head extends Laya.Script {
         }
         this.owner.parent.addChild(newBody);
         this.bodyArray.push(newBody);
+    }
+
+    rotateHead(headPos: Laya.Vector2) {
+        // 创建参考向量 (1, 0)
+        const referenceVec = new Laya.Vector2(1, 0);
+
+        // 计算有符号角度（弧度）
+        const angleRad = this.getSignedAngle(referenceVec, headPos);
+
+        // 转换为角度并调整偏移
+        const angleDeg = (angleRad * 180) / Math.PI - 90;
+
+        // 应用旋转
+        this.owner.rotation = angleDeg;
+    }
+
+    /**
+     * 计算两个向量之间的有符号角度（弧度）
+     */
+    private getSignedAngle(a: Laya.Vector2, b: Laya.Vector2): number {
+        // 计算点积和叉积
+        const dot = a.x * b.x + a.y * b.y;
+        const cross = a.x * b.y - a.y * b.x;
+
+        // 使用atan2计算有符号角度
+        return Math.atan2(cross, dot);
     }
 }
