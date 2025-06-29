@@ -980,6 +980,103 @@
           "isSensor": true
         }
       ]
+    },
+    {
+      "_$id": "8tewhcfx",
+      "_$type": "Sprite",
+      "name": "UICanvas",
+      "width": 1920,
+      "height": 1080,
+      "_mouseState": 2,
+      "_$child": [
+        {
+          "_$id": "lpcmws2a",
+          "_$type": "Image",
+          "name": "BG_score",
+          "x": 1676,
+          "y": 50,
+          "width": 194,
+          "height": 195,
+          "alpha": 0.468,
+          "right": 50,
+          "top": 50,
+          "skin": "res://f78917d1-a1b1-4d11-9f3d-e4f2be05be6b",
+          "useSourceSize": true,
+          "color": "#ffffff",
+          "_$child": [
+            {
+              "_$id": "1nuxxaxk",
+              "_$type": "Text",
+              "name": "Txt_Score",
+              "x": 45,
+              "y": 30,
+              "width": 105,
+              "height": 129,
+              "text": "[color=#000000]0[/color]",
+              "fontSize": 50,
+              "color": "rgba(0, 0, 0, 1)",
+              "bold": true,
+              "ubb": true,
+              "html": true,
+              "align": "center",
+              "valign": "middle",
+              "leading": 2
+            }
+          ]
+        },
+        {
+          "_$id": "e9x7hspa",
+          "_$type": "Sprite",
+          "name": "StartPanel",
+          "width": 1920,
+          "height": 1080,
+          "_mouseState": 2,
+          "_$child": [
+            {
+              "_$id": "35oa15ok",
+              "_$type": "Button",
+              "name": "Btn_Start",
+              "x": 770,
+              "y": 471,
+              "width": 381,
+              "height": 138,
+              "_mouseState": 2,
+              "centerX": 0,
+              "centerY": 0,
+              "stateNum": 1,
+              "skin": "res://5f11fd15-54b8-47f2-acf7-f4e69b73ac0e",
+              "label": "Title",
+              "labelSize": 59,
+              "labelBold": true,
+              "labelColors": "#000000,#000000,#000000",
+              "labelAlign": "center",
+              "labelVAlign": "middle",
+              "_$comp": [
+                {
+                  "_$type": "6ecd187a-6e48-45c5-9537-d509e505c7ba",
+                  "scriptPath": "../src/ButtonSprite.ts",
+                  "normalSprite": {
+                    "_$uuid": "5f11fd15-54b8-47f2-acf7-f4e69b73ac0e",
+                    "_$type": "Texture2D"
+                  },
+                  "pressedSprite": {
+                    "_$uuid": "b8ce0340-21db-401b-b34d-6412b109e697",
+                    "_$type": "Texture2D"
+                  },
+                  "hoverSprite": {
+                    "_$uuid": "d4317abe-6ec5-4944-9c5f-b7a28df53c63",
+                    "_$type": "Texture2D"
+                  },
+                  "disableSprite": {
+                    "_$uuid": "bd1c2359-3ab8-45ba-8cd4-61bb9b00f6f5",
+                    "_$type": "Texture2D"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
