@@ -61,7 +61,11 @@ export class Head extends Laya.Script {
 
     //#region 变量
 
+    onAdded(): void {}
     onAwake(): void {
+        Laya.SoundManager.musicVolume = 0.1;
+        Laya.SoundManager.playMusic("resources/audios/BGM.wav", 0);
+
         const defaultDir = new Laya.Vector2(0, 0);
         Laya.Vector2.normalize(new Laya.Vector2(this.owner.x, this.owner.y), defaultDir);
         this.previousMoveDir = new Laya.Vector3(defaultDir.x, defaultDir.y, 0);
@@ -204,7 +208,8 @@ export class Head extends Laya.Script {
         if (other.owner.name === "Food") {
             other.owner.removeSelf();
             this.Score++;
-            this.txt_Score.text = `${this.Score}`;
+            // 右上角得分显示
+            this.txt_Score.text = `[color=#000000]${this.Score}[/color]`;
             // 产生食物
             const newFood = this.foodPrefab.create() as Laya.Image;
             this.owner.parent.addChild(newFood);
