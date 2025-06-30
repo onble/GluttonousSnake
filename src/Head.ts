@@ -130,11 +130,12 @@ export class Head extends Laya.Script {
 
     getNewBody() {
         const newBody = this.bodyPrefab.create() as Laya.Image;
-        if (this.bodyArray.length === 1) {
+        if (this.bodyArray.length < 3) {
             const dir = new Laya.Vector2(this.owner.x, this.owner.y);
             Laya.Vector2.normalize(dir, dir);
             Laya.Vector2.scale(dir, this.bodyDistance, dir);
             newBody.pos(this.owner.x + dir.x, this.owner.y + dir.y);
+            newBody.name = `Body${this.bodyArray.length - 1}`;
         } else {
             const lastBody = this.bodyArray[this.bodyArray.length - 1];
             const lastBoBody = this.bodyArray[this.bodyArray.length - 1];
@@ -199,11 +200,8 @@ export class Head extends Laya.Script {
         Laya.Scene.open("Scene.ls");
     }
     //#region 事件监听
-    onTriggerEnter(
-        other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
-        self?: Laya.ColliderBase,
-        contact?: any
-    ): void {
+    onTriggerEnter(other: Laya.ColliderBase, self?: Laya.ColliderBase, contact?: any): void {
+        // console.warn("碰撞了", [other.label, other]);
         // console.warn("碰撞了", other.owner.name);
         if (other.owner.name === "Food") {
             other.owner.removeSelf();
@@ -215,9 +213,11 @@ export class Head extends Laya.Script {
             this.owner.parent.addChild(newFood);
             // 更新身体
             this.getNewBody();
-        } else if (other.owner.name.startsWith("Wall")) {
+            Laya.SoundManager.playSound("resources/audios/Eat.wav", 1);
+        } else if (other.owner.name.startsWith("Wall") || other.owner.name === "Body") {
             this.gameOverPanel.visible = true;
             (this.gameOverPanel.getChildByName("Txt_Score") as Laya.Text).text = `得分: ${this.Score}`;
+            Laya.SoundManager.playSound("resources/audios/Die.wav", 1);
             Laya.timer.pause();
         }
     }

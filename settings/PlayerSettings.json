@@ -9,7 +9,8 @@
       "Default",
       "Head",
       "Food",
-      "Wall"
+      "Wall",
+      "Body"
     ]
   },
   "modules": {

@@ -11,5 +11,16 @@
   "anchorY": 0.5,
   "skin": "res://2b5aa8a9-0107-4c58-981c-51304b30d3b8",
   "useSourceSize": true,
-  "color": "#ff7474"
+  "color": "#ff7474",
+  "_$comp": [
+    {
+      "_$type": "RigidBody",
+      "type": "kinematic"
+    },
+    {
+      "_$id": "x6hw",
+      "_$type": "CircleCollider",
+      "radius": 20
+    }
+  ]
 }
